@@ -23,21 +23,45 @@ What i want to do:
 	 
 	 
 	 
-	 
-	 
-	 
-	 
 */
-public class Challenge {
 
+
+
+
+public class Challenge {
+public static boolean isEvenTensPlace(int amount) {
+	
+	int rem = amount % 20;
+	
+	if (rem == 0) {
+		
+		return true;
+	}
+	
+	return false;
+}
+	
+
+
+
+
+public static int numOfTwentyBills (int amount, int[] outputArr) {
+		
+		
+		
+		
+		
+		return amount;
+		
+	}
+	
 	public static int [] withdraw(int amount) {
 		
 		
 		
+		return null;
 		
-		
-		return new int [3];
-		
+	
 	}
 
 }
