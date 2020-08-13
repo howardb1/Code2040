@@ -58,9 +58,9 @@ public static int numOfFiftyBills(int amount, int[] outputArr) {
     else if  (amount < 50 ) {					//also if the amount is less than 50, than the second
     	outputArr[1] =0; 						// the second index position should have a zero in its position aswell
     } 
-    else if ((remainder == 10)  || ((remainder == 30)) ) {					//This checks to see, if the remainder is ten 
-    	outputArr[1] = (amount / 50) -1;		// than this line sees to it that there's a zero 
-    											//portrayed in the outputArr 0 index because that means the 20 method should take of the remainder prior to getting ten 
+    else if ((remainder == 10)  || ((remainder == 30)) ) {					//This checks to see, if the modulus is ten or thirty
+    	outputArr[1] = (amount / 50) -1;									// than this line sees to it that there's a 1 insert in the [1] index no matter what due to the subtraction by 1 
+    																		//portrayed in the outputArr 0 index because that means the 20 method should take of the remainder prior to getting ten 
    
     }else {										// And finally if none of these
 												//	conditions are met a 1 should be place in index 1
@@ -106,8 +106,8 @@ public static int numOfHundredBills(int amount, int[] outputArr) {
 		
 		
 		  int []outputArr = {0,0,0}; 
-		  int amount = 230;
-		 
+		  int amount = 130;
+		  
 		
 		amount = numOfHundredBills(amount, outputArr) ;
 		System.out.println(Arrays.toString(outputArr));		
