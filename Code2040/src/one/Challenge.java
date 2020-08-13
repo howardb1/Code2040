@@ -38,11 +38,11 @@ public static int numOfTwentyBills (int amount, int[] outputArr) { //This method
 			
 			outputArr[2] = amount / 20; //This act as the clean up crew
 			
-		/*
-		 * int remaining = amount -(outputArr[2] * 20);
-		 */			
+		
+		  int remaining = amount -(outputArr[2] * 20);
+		 			
 			
-		return outputArr[2];
+		return remaining ;
 		
 	}
 
@@ -54,7 +54,7 @@ public static int numOfFiftyBills(int amount, int[] outputArr) {
     int remaining = amount;
     
     if (remainder == 0) {						// if the modulus of amount/50 equals 0 2nd index of the array is going 
-    	outputArr[1] =0;						//	is going to have a 0 in that position 							
+    	outputArr[1] = qout1;						//	is going to have a 0 in that position 							
     }
     else if  (amount < 50 ) {					//also if the amount is less than 50, than the second
     	outputArr[1] =0; 						// the second index position should have a zero in its position aswell
@@ -62,16 +62,16 @@ public static int numOfFiftyBills(int amount, int[] outputArr) {
     else if (remainder == 10) {					//This checks to see, if the remainder is ten 
     	outputArr[1] = (amount / 50) -1;		// than this line sees to it that there's a zero 
     											//portrayed in the outputArr 0 index because that means the 20 method should take of the remainder prior to getting ten 
-   
+  
     }else {										// And finally if none of these
 												//	conditions are met a 1 should be place in index 1
-    	outputArr[1] =1;
+    	outputArr[1] = (amount / 50);
     }
     													
-    remaining = amount - (outputArr[1] * 50);	//alllows for the remaining to be processed by the other methods
+    remaining = amount - (outputArr[1] * 50);	//allows for the remaining to be processed by the other methods
     
     return remaining;							//Gives the next step the remainder
-												//once divded, the next step a value to work off of
+												//once divided, the next step a value to work off of
 															
 			   											
 			  
@@ -101,13 +101,13 @@ public static int numOfHundredBills(int amount, int[] outputArr) {
    return remaining ;
 }
 
-	
+	 
 	
 	public static void main (String args[]) {
 		
 		
 		  int []outputArr = {0,0,0}; 
-		  int amount = 260;
+		  int amount = 240;
 		 
 		
 		amount = numOfHundredBills(amount, outputArr) ;
