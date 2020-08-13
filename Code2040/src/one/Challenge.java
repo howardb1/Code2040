@@ -49,20 +49,19 @@ public static int numOfTwentyBills (int amount, int[] outputArr) { //This method
 
 public static int numOfFiftyBills(int amount, int[] outputArr) {
 	//boolean isEven = isEvenTensPlace(amount);  
-    int qout1 = amount / 50;
     int remainder = amount % 50;
     int remaining = amount;
     
     if (remainder == 0) {						// if the modulus of amount/50 equals 0 2nd index of the array is going 
-    	outputArr[1] = qout1;						//	is going to have a 0 in that position 							
+    	outputArr[1] = amount / 50;						//	is going to have a 0 in that position 							
     }
     else if  (amount < 50 ) {					//also if the amount is less than 50, than the second
     	outputArr[1] =0; 						// the second index position should have a zero in its position aswell
-    }
-    else if (remainder == 10) {					//This checks to see, if the remainder is ten 
+    } 
+    else if ((remainder == 10)  || ((remainder == 30)) ) {					//This checks to see, if the remainder is ten 
     	outputArr[1] = (amount / 50) -1;		// than this line sees to it that there's a zero 
     											//portrayed in the outputArr 0 index because that means the 20 method should take of the remainder prior to getting ten 
-  
+   
     }else {										// And finally if none of these
 												//	conditions are met a 1 should be place in index 1
     	outputArr[1] = (amount / 50);
@@ -107,7 +106,7 @@ public static int numOfHundredBills(int amount, int[] outputArr) {
 		
 		
 		  int []outputArr = {0,0,0}; 
-		  int amount = 240;
+		  int amount = 230;
 		 
 		
 		amount = numOfHundredBills(amount, outputArr) ;
