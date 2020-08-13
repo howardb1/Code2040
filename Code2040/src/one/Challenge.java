@@ -31,108 +31,94 @@ What i want to do:
 
 
 public class Challenge {
-
-
-public static boolean isEvenTensPlace(int amount) { //this method determines whether the tens place/outputArr 1 is an odd #
+ 
 	
-	int rem = amount % 20;
-	
-	if (rem == 0) {
-		
-		return true;
-	}
-	
-	return false;
-}
-	
-
+ 
 public static int numOfTwentyBills (int amount, int[] outputArr) { //This method is basically the cleanup for the amount, divding the rest or what given by 20
-		
-		
-		boolean isEven = isEvenTensPlace(amount);
-		if(isEven == true ) {
 			
-			outputArr[2] = amount / 20; 
+			outputArr[2] = amount / 20; //This act as the clean up crew
 			
-		}
-		
-		return amount;
+		/*
+		 * int remaining = amount -(outputArr[2] * 20);
+		 */			
+			
+		return outputArr[2];
 		
 	}
 
 
 public static int numOfFiftyBills(int amount, int[] outputArr) {
-	boolean isEven = isEvenTensPlace(amount);  
+	//boolean isEven = isEvenTensPlace(amount);  
     int qout1 = amount / 50;
-    int remaider = amount % 50;
+    int remainder = amount % 50;
+    int remaining = amount;
     
-    if(isEven == false){
-      //outputArr[1] = someValue
-       
-      outputArr[1] = qout1;
-      
-       return 1;
-      
-    }else{
-      
-      return amount;
+    if (remainder == 0) {						// if the modulus of amount/50 equals 0 2nd index of the array is going 
+    	outputArr[1] =0;						//	is going to have a 0 in that position 							
     }
-
+    else if  (amount < 50 ) {					//also if the amount is less than 50, than the second
+    	outputArr[1] =0; 						// the second index position should have a zero in its position aswell
+    }
+    else if (remainder == 10) {					//This checks to see, if the remainder is ten 
+    	outputArr[1] = (amount / 50) -1;		// than this line sees to it that there's a zero 
+    											//portrayed in the outputArr 0 index because that means the 20 method should take of the remainder prior to getting ten 
+   
+    }else {										// And finally if none of these
+												//	conditions are met a 1 should be place in index 1
+    	outputArr[1] =1;
+    }
+    													
+    remaining = amount - (outputArr[1] * 50);	//alllows for the remaining to be processed by the other methods
+    
+    return remaining;							//Gives the next step the remainder
+												//once divded, the next step a value to work off of
+															
+			   											
+			  
+			  											
+			 
+			 
 }
+
+
+
 
 
 
 public static int numOfHundredBills(int amount, int[] outputArr) {
 	
-	int mod = amount % 100; 
-    int qout = amount / 100;
-    
-    outputArr[0] = qout;
-    
-		/*
-		 * if (outputArr [0] == 1) { System.out.println(qout); }else {
-		 * System.out.print(mod); }
-		 */
-    
-    return mod;
+	int mod = amount % 100;
+											// If the remainder of amount/100 is either 30 or 10 a zero should be in the 
+	if ((mod == 10 ) || (mod == 30)) { 		// zero index
+		outputArr[0] = (amount / 100) - 1;	// if the above conditions are met this line sees to it that theres a zero potrayed in the outputArr 0 index 				
+	}else {
+		outputArr[0] = (amount / 100);			// Divides the amount by 100
+	}
+	int remaining = amount -(outputArr[0] * 100);  //Gives the next step the remainder once divded, the next step a value to work off of
+	
+	
+	
+   return remaining ;
 }
 
 	
-	/*
-	 * public static char[] withdraw(int amount) { //this method is hopefully
-	 * turning the amount into a char array
-	 * 
-	 * char [] outputArr = String.valueOf(amount).toCharArray();
-	 * 
-	 * 
-	 * return outputArr ;
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * }
-	 */
+	
 	public static void main (String args[]) {
 		
-		int amount = 130;
-		int [] outputArr = {0,0,0};
 		
-		boolean isEven = isEvenTensPlace(amount);
-		System.out.println("is the tens place even for " + amount + ": " + isEven);
+		  int []outputArr = {0,0,0}; 
+		  int amount = 260;
 		 
-	    System.out.println("amount: " + amount);
-	    System.out.println("outputArr: " + Arrays.toString(outputArr)); 
-	   
 		
+		amount = numOfHundredBills(amount, outputArr) ;
+		System.out.println(Arrays.toString(outputArr));		
 		
-	    int twenty = numOfTwentyBills(amount,outputArr);
-	    int fity = numOfFiftyBills(amount, outputArr);
-		int hundo = numOfHundredBills(amount, outputArr);
+		amount = numOfFiftyBills(amount, outputArr);
+		System.out.println(Arrays.toString(outputArr));
+		
+		amount = numOfTwentyBills(amount, outputArr);
+		System.out.println(Arrays.toString(outputArr));
+		
 	}
 	
 	
