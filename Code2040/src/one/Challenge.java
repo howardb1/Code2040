@@ -99,26 +99,41 @@ public static int numOfHundredBills(int amount, int[] outputArr) {
    return remaining ;
 }
 
+
+public static int[] withdraw  (int amount) {
+	
+	int [] outputArr = {0,0,0};
+	
+	amount = numOfHundredBills(amount, outputArr);
+	
+	amount = numOfFiftyBills(amount, outputArr);
+	
+	amount = numOfTwentyBills(amount, outputArr);
 	 
 	
-	public static void main (String args[]) {
-		
-		
-		  int []outputArr = {0,0,0}; 
-		  int amount = 130;
-		  
-		
-		amount = numOfHundredBills(amount, outputArr) ;
-		System.out.println(Arrays.toString(outputArr));		
-		
-		amount = numOfFiftyBills(amount, outputArr);
-		System.out.println(Arrays.toString(outputArr));
-		
-		amount = numOfTwentyBills(amount, outputArr);
-		System.out.println(Arrays.toString(outputArr));
-		
-	}
 	
 	
+	return outputArr;
+}
+	 
+	
+	/*
+	 * public static void main (String args[]) {
+	 * 
+	 * 
+	 * int []outputArr = {0,0,0}; int amount = 130;
+	 * 
+	 * 
+	 * amount = numOfHundredBills(amount, outputArr) ;
+	 * System.out.println(Arrays.toString(outputArr));
+	 * 
+	 * amount = numOfFiftyBills(amount, outputArr);
+	 * System.out.println(Arrays.toString(outputArr));
+	 * 
+	 * amount = numOfTwentyBills(amount, outputArr);
+	 * System.out.println(Arrays.toString(outputArr));
+	 * 
+	 * }
+	 */
 	
 }
